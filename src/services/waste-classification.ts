@@ -23,6 +23,8 @@ export interface WasteClassification {
   };
 }
 
+import { classifyWasteFlow, ClassifyWasteInput, ClassifyWasteOutput } from '@/ai/flows/classify-waste';
+
 /**
  * Asynchronously classifies waste from an image and returns a WasteClassification object.
  *
@@ -30,15 +32,17 @@ export interface WasteClassification {
  * @returns A promise that resolves to a WasteClassification object containing the classification results.
  */
 export async function classifyWaste(imageUrl: string): Promise<WasteClassification> {
-  // TODO: Implement this by calling an API.
-  
+  // Call the Genkit flow to classify the waste
+  const input: ClassifyWasteInput = { imageUrl: imageUrl };
+  const classificationResult: ClassifyWasteOutput = await classifyWasteFlow(input);
+
   return {
-    wasteType: 'Plastic',
-    quantity: 'Heavy',
-    manpowerRequired: 4,
+    wasteType: classificationResult.wasteType,
+    quantity: classificationResult.quantity,
+    manpowerRequired: classificationResult.manpowerRequired,
     details: {
-      recyclable: true,
-      decompositionTime: '500 years',
+      recyclable: classificationResult.recyclable,
+      decompositionTime: classificationResult.decompositionTime,
     },
   };
 }
