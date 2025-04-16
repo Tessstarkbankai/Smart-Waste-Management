@@ -16,7 +16,7 @@ export default function Home() {
           Revolutionizing waste management with AI-powered solutions.
         </p>
         <div className="space-x-4">
-          <Link href="/app">
+          <Link href="/waste-analysis">
             <Button variant="primary" size="lg">
               Analyze Waste <Icons.arrowRight className="ml-2" />
             </Button>
@@ -105,4 +105,3 @@ export default function Home() {
     </div>
   );
 }
-
