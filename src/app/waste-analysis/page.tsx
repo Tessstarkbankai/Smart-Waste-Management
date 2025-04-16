@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { classifyWaste } from "@/services/waste-classification";
 import { Dashboard } from "@/components/dashboard";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Icons } from "@/components/icons";
+import { ArrowRight, Check, ChevronsUpDown, Circle, Copy, Edit, ExternalLink, File, HelpCircle, Home, Loader2, Mail, MessageSquare, Moon, Plus, PlusCircle, Search, Server, Settings, Share2, Shield, Sun, Trash, User, X, Workflow, Upload } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -84,7 +84,7 @@ export default function WasteAnalysisPage() {
         />
         <label htmlFor="image-upload">
           <Button variant="secondary" size="lg">
-            Upload Image <Icons.upload className="ml-2" />
+            Upload Image <Upload className="ml-2" />
           </Button>
         </label>
 
@@ -92,12 +92,12 @@ export default function WasteAnalysisPage() {
         <Button variant="primary" size="lg" onClick={handleSubmit} disabled={isLoading}>
           {isLoading ? (
             <>
-              <Icons.loader className="mr-2 h-4 w-4 animate-spin" />
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Analyzing...
             </>
           ) : (
             <>
-              Analyze <Icons.search className="ml-2" />
+              Analyze <Search className="ml-2" />
             </>
           )}
         </Button>

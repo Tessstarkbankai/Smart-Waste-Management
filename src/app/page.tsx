@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@/components/icons";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -18,7 +18,7 @@ export default function Home() {
         <div className="space-x-4">
           <Link href="/waste-analysis">
             <Button variant="primary" size="lg">
-              Analyze Waste <Icons.arrowRight className="ml-2" />
+              Analyze Waste <ArrowRight className="ml-2" />
             </Button>
           </Link>
           <Button variant="outline" size="lg">
@@ -31,7 +31,7 @@ export default function Home() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8 px-4 md:px-8">
         {/* Feature 1 */}
         <div className="flex flex-col items-center p-4 rounded-lg shadow-md bg-card">
-          <Icons.shield className="w-12 h-12 text-primary mb-2" />
+          <ArrowRight className="w-12 h-12 text-primary mb-2" />
           <h3 className="text-xl font-semibold text-foreground mb-2">
             AI-Powered Classification
           </h3>
@@ -42,7 +42,7 @@ export default function Home() {
 
         {/* Feature 2 */}
         <div className="flex flex-col items-center p-4 rounded-lg shadow-md bg-card">
-          <Icons.messageSquare className="w-12 h-12 text-primary mb-2" />
+          <ArrowRight className="w-12 h-12 text-primary mb-2" />
           <h3 className="text-xl font-semibold text-foreground mb-2">
             Real-time Monitoring
           </h3>
@@ -53,7 +53,7 @@ export default function Home() {
 
         {/* Feature 3 */}
         <div className="flex flex-col items-center p-4 rounded-lg shadow-md bg-card">
-          <Icons.workflow className="w-12 h-12 text-primary mb-2" />
+          <ArrowRight className="w-12 h-12 text-primary mb-2" />
           <h3 className="text-xl font-semibold text-foreground mb-2">
             Automated Reporting
           </h3>
@@ -64,7 +64,7 @@ export default function Home() {
         
         {/* Feature 4 */}
         <div className="flex flex-col items-center p-4 rounded-lg shadow-md bg-card">
-          <Icons.settings className="w-12 h-12 text-primary mb-2" />
+          <ArrowRight className="w-12 h-12 text-primary mb-2" />
           <h3 className="text-xl font-semibold text-foreground mb-2">
             Customizable Solutions
           </h3>
@@ -75,7 +75,7 @@ export default function Home() {
 
         {/* Feature 5 */}
         <div className="flex flex-col items-center p-4 rounded-lg shadow-md bg-card">
-          <Icons.search className="w-12 h-12 text-primary mb-2" />
+          <ArrowRight className="w-12 h-12 text-primary mb-2" />
           <h3 className="text-xl font-semibold text-foreground mb-2">
             Smart Analytics
           </h3>
@@ -86,7 +86,7 @@ export default function Home() {
 
         {/* Feature 6 */}
         <div className="flex flex-col items-center p-4 rounded-lg shadow-md bg-card">
-          <Icons.plusCircle className="w-12 h-12 text-primary mb-2" />
+          <ArrowRight className="w-12 h-12 text-primary mb-2" />
           <h3 className="text-xl font-semibold text-foreground mb-2">
             Scalable Infrastructure
           </h3>
