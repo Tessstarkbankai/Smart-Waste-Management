@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { classifyWaste } from "@/services/waste-classification";
 import { Dashboard } from "@/components/dashboard";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -121,3 +121,4 @@ export default function WasteAnalysisPage() {
     </div>
   );
 }
+
