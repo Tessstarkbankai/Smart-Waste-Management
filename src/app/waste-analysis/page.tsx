@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { classifyWaste } from "@/services/waste-classification";
 import { Dashboard } from "@/components/dashboard";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { ArrowRight, Check, ChevronsUpDown, Circle, Copy, Edit, ExternalLink, File, HelpCircle, Home, Loader2, Mail, MessageSquare, Moon, Plus, PlusCircle, Search, Server, Settings, Share2, Shield, Sun, Trash, User, X, Workflow, Upload } from 'lucide-react';
-import { cn } from "@/lib/utils";
+import { Upload, Search } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
@@ -16,9 +15,10 @@ export default function WasteAnalysisPage() {
   const [wasteClassification, setWasteClassification] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasCameraPermission, setHasCameraPermission] = useState(false);
-  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const { toast } = useToast();
 
@@ -67,6 +67,12 @@ export default function WasteAnalysisPage() {
     }
   };
 
+  const handleUploadClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-background">
       <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -81,12 +87,11 @@ export default function WasteAnalysisPage() {
           onChange={handleImageChange}
           className="hidden"
           id="image-upload"
+          ref={fileInputRef}
         />
-        <label htmlFor="image-upload">
-          <Button variant="secondary" size="lg">
-            Upload Image <Upload className="ml-2" />
-          </Button>
-        </label>
+        <Button variant="secondary" size="lg" onClick={handleUploadClick}>
+          Upload Image <Upload className="ml-2" />
+        </Button>
 
         {/* Analyze Button */}
         <Button variant="primary" size="lg" onClick={handleSubmit} disabled={isLoading}>
