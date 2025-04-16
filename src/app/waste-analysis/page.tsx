@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react';
 import { classifyWaste } from "@/services/waste-classification";
 import { Dashboard } from "@/components/dashboard";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Upload, Search } from 'lucide-react';
+import { Upload, Search, Loader2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
