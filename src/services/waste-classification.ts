@@ -28,12 +28,12 @@ import { classifyWasteFlow, ClassifyWasteInput, ClassifyWasteOutput } from '@/ai
 /**
  * Asynchronously classifies waste from an image and returns a WasteClassification object.
  *
- * @param imageUrl The URL of the image to classify.
+ * @param imageData The base64 encoded of the image to classify.
  * @returns A promise that resolves to a WasteClassification object containing the classification results.
  */
-export async function classifyWaste(imageUrl: string): Promise<WasteClassification> {
+export async function classifyWaste(imageData: string): Promise<WasteClassification> {
   // Call the Genkit flow to classify the waste
-  const input: ClassifyWasteInput = { imageUrl: imageUrl };
+  const input: ClassifyWasteInput = { imageData: imageData };
   const classificationResult: ClassifyWasteOutput = await classifyWasteFlow(input);
 
   return {

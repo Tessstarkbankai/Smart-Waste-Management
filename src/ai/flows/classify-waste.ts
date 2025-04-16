@@ -3,7 +3,7 @@
 /**
  * @fileOverview Classifies waste from an image using AI.
  *
- * - classifyWasteFlow - A Genkit flow that takes an image URL and returns the waste classification.
+ * - classifyWasteFlow - A Genkit flow that takes an image  base64 encoded and returns the waste classification.
  * - ClassifyWasteInput - The input type for the classifyWasteFlow function.
  * - ClassifyWasteOutput - The output type for the classifyWasteFlow function.
  */
@@ -12,7 +12,7 @@ import { ai } from '@/ai/ai-instance';
 import { z } from 'genkit';
 
 const ClassifyWasteInputSchema = z.object({
-  imageUrl: z.string().describe('The URL of the waste image.'),
+  imageData: z.string().describe('The base64 encoded waste image.'),
 });
 export type ClassifyWasteInput = z.infer<typeof ClassifyWasteInputSchema>;
 
@@ -33,7 +33,7 @@ const prompt = ai.definePrompt({
   name: 'classifyWastePrompt',
   input: {
     schema: z.object({
-      imageUrl: z.string().describe('The URL of the waste image.'),
+      imageData: z.string().describe('The base64 encoded waste image.'),
     }),
   },
   output: {
@@ -55,7 +55,7 @@ Analyze the waste in the image and provide the following information:
 - decompositionTime: The decomposition time of the waste.
 
 Analyze this image:
-{{media url=imageUrl}}
+{{media url=imageData type="image/png"}}
 
 Return the result in JSON format.`,
 });

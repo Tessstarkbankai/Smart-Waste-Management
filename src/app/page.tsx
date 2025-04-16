@@ -4,6 +4,16 @@ import { useState, useCallback } from "react";
 import { classifyWaste, WasteClassification } from "@/services/waste-classification";
 import { Dashboard } from "@/components/dashboard";
 
+// Function to convert image to base64
+const toBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
+  });
+};
+
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -18,11 +28,17 @@ export default function Home() {
   }, []);
 
   const handleClassify = useCallback(async () => {
-    if (preview) {
-      const classification = await classifyWaste(preview);
-      setWasteClassification(classification);
+    if (image) {
+      try {
+        const base64Image = await toBase64(image);
+        const classification = await classifyWaste(base64Image);
+        setWasteClassification(classification);
+      } catch (error) {
+        console.error("Error classifying waste:", error);
+        // Handle error (e.g., display an error message to the user)
+      }
     }
-  }, [preview]);
+  }, [image]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
