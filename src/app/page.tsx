@@ -18,7 +18,7 @@ export default function Home() {
         <div className="space-x-4">
           <Link href="/app">
             <Button variant="primary" size="lg">
-              Get Started <Icons.arrowRight className="ml-2" />
+              Analyze Waste <Icons.arrowRight className="ml-2" />
             </Button>
           </Link>
           <Button variant="outline" size="lg">
@@ -105,3 +105,4 @@ export default function Home() {
     </div>
   );
 }
+
