@@ -1,7 +1,7 @@
 import {genkit} from 'genkit';
 import {googleAI} from '@genkit-ai/googleai';
 
-// Use the provided API key
+// here we have used ai api
 const apiKey = 'AIzaSyBDkVjNt4YlVbrkP9hKA4APjYy8zaBFOc0';
 
 if (!apiKey) {
