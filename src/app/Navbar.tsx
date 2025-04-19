@@ -102,11 +102,11 @@ export default function Navbar() {
                   Contact
                 </Link>
                 <Link 
-                  href="#demo" 
+                  href="/waste-analysis" 
                   className="block px-3 py-2 bg-[#32C766] text-white rounded-md mt-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Get Demo
+                  Analyze Waste
                 </Link>
               </div>
             </div>
