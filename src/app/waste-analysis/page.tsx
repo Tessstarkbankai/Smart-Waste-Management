@@ -118,8 +118,8 @@ export default function WasteAnalysisPage() {
 
       {/* Dashboard */}
       {wasteClassification && (
-        <div className="mt-8 w-full max-w-4xl">
-          <h2 className="text-2xl font-semibold text-foreground mb-4">Analysis Results</h2>
+        <div className="mt-8 w-full">
+          <h2 className="text-4xl text-center text-green-800 font-semibold text-foreground mb-4">Analysis Results</h2>
           <Dashboard wasteClassification={wasteClassification} />
         </div>
       )}
